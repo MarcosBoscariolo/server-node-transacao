@@ -1,0 +1,9 @@
+POST http://localhost:3333/transacao
+Content-Type: application/json
+
+{
+  "descricao": "Restaurante",
+  "preco": 93.58,
+  "categoria": "Alimentação",
+  "tipoTransacao": "S"
+}
