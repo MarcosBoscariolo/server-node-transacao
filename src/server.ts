@@ -1,4 +1,5 @@
 import fastify from "fastify";
+import fastifyCors from '@fastify/cors'
 import { 
   serializerCompiler, 
   validatorCompiler
@@ -7,6 +8,12 @@ import { criarTransacao } from "./routes/criar-transacao";
 import { registrarTransacao } from "./routes/registrar-transacao";
 
 const app = fastify();
+
+app.register(fastifyCors, {
+  allowedHeaders: ['*'],
+  methods: ['*'],
+  origin: '*',
+});
 
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
