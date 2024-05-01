@@ -75,8 +75,17 @@ export async function criarTransacao(app: FastifyInstance) {
       contaArredondada.total = Number(conta.total.toFixed(2)); 
     }
 
+    const transacaoCreate = {
+      id: transacao.id,
+      descricao: transacao.descricao,
+      preco: transacao.preco,
+      categoria: transacao.categoria,
+      tipoTransacao: transacao.tipoTransacao,
+      dataTransacao: transacao.dataTransacao
+    };
+
     const data = {
-      id_transacao: transacao.id,
+      transacao: transacaoCreate,
       conta: contaArredondada
     };
 
